@@ -50,7 +50,7 @@ Tekst w konsoli powinien głosić: `On branch 1_TwojeImięNazwisko`
 5. Uruchom IntelliJ i utwórz nowy projekt do każdego zadania (np. TaskA, TaskB).  
 Jeśli nie wiesz jak to zrobić, to pomoże w tym ta instrukcja: https://www.jetbrains.com/help/idea/creating-and-running-your-first-java-application.html  
 :exclamation: Zwróć uwagę, żeby odpowiednio ustawić ścieżkę do projektu (Project location) - musi się on znaleźć w katalogu `Ex1` w sklonowanym wczesniej repozytorium `jjdzr4-homeworks`. To jest bardzo ważne, bo w przeciwnym razie Twoje rozwiązanie nie trafi do zdalnego repo na GitHubie. Tak więc, tworząc projekt pod zadanie, sprawdź dokładnie, czy 'Project location' kończy się taką ścieżką: `(jakieś lokalizacja w komputerze)/jjdzr4-homeworks/Ex1/TaskA`.  
-![przykładowy Project location](/img/Project_location.png)  
+![przykładowy Project location](./img/Project_location.png)  
 
 6. Wykonaj zadanie i commituj wyniki. Aby wykonać commit, najprościej:
 ```
