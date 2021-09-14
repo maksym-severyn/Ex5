@@ -22,3 +22,5 @@ Każde zadanie ma treść opisaną w pliku `README.md` w swoim katalogu.
 Klikając poniższe linki, przejdziesz na stronę z podglądem instrukcji.
 
 ### [Zadanie 1 - Podstawy programowania Java SE](./Ex1)
+
+### [Zadanie 2 - Podstawy programowania Java SE](./Ex2)
