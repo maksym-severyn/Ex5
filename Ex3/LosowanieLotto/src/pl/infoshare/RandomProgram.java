@@ -1,11 +1,16 @@
 package pl.infoshare;
 
+import java.io.IOException;
 import java.util.Random;
 
+import static pl.infoshare.File.writeResultsToFile;
 import static pl.infoshare.GetInputFromUser.getNumberFromUser;
+import static pl.infoshare.Sorting.sortDesc;
+
 
 public class RandomProgram {
-    private int[] randomNumbersTable;
+
+    public int[] randomNumbersTable;
     final private int numberToBeChanged = 0;
 
     private static int getRandomNumberFrom1ToInput(int rangeOfRandomizer) {
@@ -21,10 +26,10 @@ public class RandomProgram {
             randomNumbersTable[i] = getRandomNumberFrom1ToInput(randomizerRange);
         }
 
-        this.checkAndCorrectDuplicatesInTable(randomizerRange);
+        this.checkAndReplaceZerosToNumbersInTable(randomizerRange);
     }
 
-    private void checkAndCorrectDuplicatesInTable(int randomizerRange) {
+    private void checkAndReplaceZerosToNumbersInTable(int randomizerRange) {
         boolean keepLooping;
 
         do {
@@ -59,7 +64,7 @@ public class RandomProgram {
         this.randomNumbersTable[indexToChange] = getRandomNumberFrom1ToInput(rangeOfRandomNumbers);
     }
 
-    public void run() {
+    public void run() throws InterruptedException, IOException {
 
         System.out.println("Please enter the range, where random numbers will be chosen from:");
         int rangeOfRandomNumbers = getNumberFromUser();
@@ -75,12 +80,25 @@ public class RandomProgram {
         System.out.println("Start of draw " + numberOfDraws + " digits ranging from 1 to " + rangeOfRandomNumbers);
 
         RandomProgram myProgram = new RandomProgram();
-
         myProgram.createTableOfRandomNumbers(numberOfDraws, rangeOfRandomNumbers);
 
         System.out.println("Drawn numbers:");
-        for (int i = 0; i < myProgram.randomNumbersTable.length; i++){
+        for (int i = 0; i < myProgram.randomNumbersTable.length; i++) {
+            Thread.sleep(1000);
             System.out.println(myProgram.randomNumbersTable[i]);
         }
+
+        sortDesc(myProgram.randomNumbersTable);
+
+        System.out.println("Sorted drawn numbers:");
+        for (int i = 0; i < myProgram.randomNumbersTable.length; i++) {
+            Thread.sleep(1000);
+            System.out.println(myProgram.randomNumbersTable[i]);
+        }
+
+        writeResultsToFile(myProgram);
+
     }
+
+
 }

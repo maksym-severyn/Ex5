@@ -1,9 +1,10 @@
 package pl.infoshare;
+
 import java.util.Scanner;
 
 public class GetInputFromUser {
 
-    public static int getNumberFromUser(){
+    public static int getNumberFromUser() {
         int rangeOfNumber = 0;
         boolean keepAskingUser = true;
 
@@ -11,7 +12,7 @@ public class GetInputFromUser {
             try {
                 Scanner scanner = new Scanner(System.in);
                 rangeOfNumber = scanner.nextInt();
-                if (rangeOfNumber < 0){
+                if (rangeOfNumber < 0) {
                     System.out.println("Negative number is not allowed. Please enter the positive number:");
                     continue;
                 }
@@ -24,7 +25,6 @@ public class GetInputFromUser {
 
         return rangeOfNumber;
     }
-
 
 
 }
