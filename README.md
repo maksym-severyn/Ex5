@@ -28,3 +28,5 @@ Klikając poniższe linki, przejdziesz na stronę z podglądem instrukcji.
 ### [Zadanie 3 - Podstawy programowania Java SE](./Ex3)
 
 ### [Zadanie 4 - OOP w Java](./Ex4)
+
+### [Zadanie 5 - Struktury danych w Java](./Ex5)
