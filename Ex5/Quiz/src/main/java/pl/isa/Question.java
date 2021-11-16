@@ -10,14 +10,19 @@ import java.io.IOException;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class Question {
+public class Question implements Comparable<Question> {
     private long id;
     private Map<String, Set<Answer>> questionAndAnswers;
+    private Set<Map.Entry<String,Set<Answer>>> qwe;
     private QuestionCategory questionCategory;
     private QuestionType questionType;
 
-    public Question(long id, QuestionCategory questionCategory, String questionContent, Answer... answers) {
-        this.id = id;
+    //the default constructor needs for correct working of Jackson
+    private Question() {
+    }
+
+    public Question(QuestionCategory questionCategory, String questionContent, Answer... answers) {
+        this.id = generateId();
         this.questionCategory = questionCategory;
 
         Set<Answer> answersForQuestion = new TreeSet<>();
@@ -28,6 +33,7 @@ public class Question {
         questionAndAnswers.put(questionContent,answersForQuestion);
 
         assignQuestionType();
+        QuestionService.loadQuestionToBase(this);
     }
 
     private void assignQuestionType(){
@@ -48,10 +54,15 @@ public class Question {
         }
     }
 
-//    private long generateId(){
-//
-//    }
-
+    private long generateId(){
+        List<Question> questionList = QuestionService.loadQuestionsFromBase();
+        Collections.sort(questionList, Collections.reverseOrder());
+        if (questionList == null || questionList.size() == 0) {
+            return 1;
+        } else {
+            return questionList.get(0).getId() + 1;
+        }
+    }
 
     public long getId() {
         return id;
@@ -69,21 +80,19 @@ public class Question {
         return questionType;
     }
 
-    public void loadQuestionToBase(){
-        ObjectMapper objectMapper = new ObjectMapper().enable(SerializationFeature.INDENT_OUTPUT);
-        try {
-            objectMapper.writeValue(new FileWriter(Main.QUESTIONS_BASE_PATH + "/Q" + getId() + ".json"), this);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    @Override
+    public int compareTo(Question o) {
+        return Integer.valueOf(String.valueOf(this.id - o.getId()));
     }
-
-
 
     static class Answer implements Comparable<Answer>{
         private Character letter;
         private String answer;
         private boolean isCorrect;
+
+        //the default constructor needs for correct working of Jackson
+        private Answer() {
+        }
 
         public Answer(char letter, String answer, boolean isCorrect) {
             this.letter = letter;
