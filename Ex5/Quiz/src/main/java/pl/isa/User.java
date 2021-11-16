@@ -12,4 +12,36 @@ public class User {
         this.id = id;
         this.nameAndSurname = nameAndSurname;
     }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getNameAndSurname() {
+        return nameAndSurname;
+    }
+
+    public void setNameAndSurname(String nameAndSurname) {
+        this.nameAndSurname = nameAndSurname;
+    }
+
+    public LocalDateTime getDateOfQuiz() {
+        return dateOfQuiz;
+    }
+
+    public void setDateOfQuiz(LocalDateTime dateOfQuiz) {
+        this.dateOfQuiz = dateOfQuiz;
+    }
+
+    public Quiz getQuiz() {
+        return quiz;
+    }
+
+    public void setQuiz(Quiz quiz) {
+        this.quiz = quiz;
+    }
 }

@@ -29,7 +29,7 @@ public class UsersBase {
         this.users.add(user);
     }
 
-    public static List<User> loadUsersFromBase(){
+    private static List<User> loadUsersFromBase(){
         List<User> userList = new ArrayList<>();
         //TODO: create method to load users from base to list;
         return userList;

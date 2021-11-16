@@ -1,12 +1,12 @@
 package pl.isa;
 
-public enum QuestionTypes {
+public enum QuestionType {
     SINGLE_CHOICE("Test jednokrotnego wyboru"),
     MULTIPLE_CHOICE("Test wielokrotnego wyboru");
 
     private String explaining;
 
-    QuestionTypes(String explaining) {
+    QuestionType(String explaining) {
     this.explaining = explaining;
     }
 
