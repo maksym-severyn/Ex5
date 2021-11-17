@@ -5,31 +5,31 @@ public class Initialization {
 
     public static void fillBaseWithDefaultQuestions() {
         if (Main.QUESTION_SERVICE.readObjectsFromBase(Question.class, Main.QUESTIONS_BASE_PATH).size() == 0) {
-//            new Question(QuestionCategory.JAVA_SE, "Język Java cechuje się tym, że",
-//                    new Question.Answer('a', "Jest językiem stricte programowania funkcyjnego", false),
-//                    new Question.Answer('b', "Jest językiem stricte programowania obiektowego", false),
-//                    new Question.Answer('c', "Zawiera elementy programowania funkcyjnego", true)
-//            );
-//            new Question(QuestionCategory.JAVA_SE, "W jaki sposób można dostać się do zawartości HashSet",
-//                    new Question.Answer('a', "Za pomocą iteratora", true),
-//                    new Question.Answer('b', "Za pomocą metody get()", false),
-//                    new Question.Answer('c', "Za pomocą metody getValue()", false)
-//            );
-//            new Question(QuestionCategory.JAVA_SE, "W jaki sposób mozna dodać do istniejącej tablicy int[] i = {1,2,3} kolejną pozycję, tak, aby mieć i = {1,2,3,4}",
-//                    new Question.Answer('a', "Za pomocą polecenia i.add(3,4)", false),
-//                    new Question.Answer('b', "Najpierw utworzyć nową tablicę o większej liczbie elementów. Następnie dodać zawartość z tablicy pierwotnej, a następnie dodać element \"4\"", true),
-//                    new Question.Answer('c', "Za pomocą polecenia i.put(3,4)", false)
-//            );
-//            new Question(QuestionCategory.JAVA_SE, "Wybierz prawidłowe stwierdzenie",
-//                    new Question.Answer('a', "Lambdy zostały dodane do Java SE od wersji 1.7", false),
-//                    new Question.Answer('b', "TreeMap zachowuje kolejność dodawania elementów", false),
-//                    new Question.Answer('c', "W mapach iteruje się po klaczach mapy", true)
-//            );
-//            new Question(QuestionCategory.JAVA_SE, "Wybierz prawidłowe stwierdzenie",
-//                    new Question.Answer('a', "Lambdy są dostępne w Java SE wersji 11", true),
-//                    new Question.Answer('b', "LinkedHashMap przechowuje elementy w formie posortowanej", false),
-//                    new Question.Answer('c', "W celu sortowania mapy neleży uzyć metody order()", false)
-//            );
+            new Question(QuestionCategory.JAVA_SE, "Język Java cechuje się tym, że",
+                    new Question.Answer('a', "Jest językiem stricte programowania funkcyjnego", false),
+                    new Question.Answer('b', "Jest językiem stricte programowania obiektowego", false),
+                    new Question.Answer('c', "Zawiera elementy programowania funkcyjnego", true)
+            );
+            new Question(QuestionCategory.JAVA_SE, "W jaki sposób można dostać się do zawartości HashSet",
+                    new Question.Answer('a', "Za pomocą iteratora", true),
+                    new Question.Answer('b', "Za pomocą metody get()", false),
+                    new Question.Answer('c', "Za pomocą metody getValue()", false)
+            );
+            new Question(QuestionCategory.JAVA_SE, "W jaki sposób mozna dodać do istniejącej tablicy int[] i = {1,2,3} kolejną pozycję, tak, aby mieć i = {1,2,3,4}",
+                    new Question.Answer('a', "Za pomocą polecenia i.add(3,4)", false),
+                    new Question.Answer('b', "Najpierw utworzyć nową tablicę o większej liczbie elementów. Następnie dodać zawartość z tablicy pierwotnej, a następnie dodać element \"4\"", true),
+                    new Question.Answer('c', "Za pomocą polecenia i.put(3,4)", false)
+            );
+            new Question(QuestionCategory.JAVA_SE, "Wybierz prawidłowe stwierdzenie",
+                    new Question.Answer('a', "Lambdy zostały dodane do Java SE od wersji 1.7", false),
+                    new Question.Answer('b', "TreeMap zachowuje kolejność dodawania elementów", false),
+                    new Question.Answer('c', "W mapach iteruje się po klaczach mapy", true)
+            );
+            new Question(QuestionCategory.JAVA_SE, "Wybierz prawidłowe stwierdzenie",
+                    new Question.Answer('a', "Lambdy są dostępne w Java SE wersji 11", true),
+                    new Question.Answer('b', "LinkedHashMap przechowuje elementy w formie posortowanej", false),
+                    new Question.Answer('c', "W celu sortowania mapy neleży uzyć metody order()", false)
+            );
             new Question(QuestionCategory.JAVA_SE, "Klasę anonimową można utworzyć z",
                     new Question.Answer('a', "Interfejsu", true),
                     new Question.Answer('b', "Klasy abstrakcyjnej", true),
@@ -56,32 +56,32 @@ public class Initialization {
                     new Question.Answer('c', "Polecenie prettyLooking() z biblioteki Gson pozwala na ładne formatowanie zawartości plików json", false),
                     new Question.Answer('d', "Lambdy są elementami programowania funkcyjnego", true)
             );
-////            new Question(QuestionCategory.GIT, "Jaka komenda wywołuje tzw. \"niezależny kontener\", do którego trafiają zmiany, które zaszły od ostatniego commitu, oraz nowoutworzone pliki",
-////                    new Question.Answer('a', "$ git stash", false),
-////                    new Question.Answer('b', "$ git stash -u", true),
-////                    new Question.Answer('c', "$ git stash pop", false)
-////            );
-////            new Question(QuestionCategory.GIT, "Jaka komenda przywróci wszystkie zmiany z commita 802f4f0, tworząc nowy commit",
-////                    new Question.Answer('a', "$ git reset 802f4f0", false),
-////                    new Question.Answer('b', "$ git restore 802f4f0", false),
-////                    new Question.Answer('c', "$ git revert 802f4f0", true)
-////            );
-////            new Question(QuestionCategory.GIT, "Jaka komenda wycofuje próbę merge, jeżeli wystąpił konflikt",
-////                    new Question.Answer('a', "$ git merge --abort", true),
-////                    new Question.Answer('b', "$ git abort", false),
-////                    new Question.Answer('c', "$ git restore", false),
-////                    new Question.Answer('d', "$ git merge restore", false)
-////            );
-////            new Question(QuestionCategory.GIT, "Jaka komenda skopiuje commit 802f4f0 do branch, na którym jesteś zacheckoutowany",
-////                    new Question.Answer('a', "$ git cherry --pick 802f4f0", false),
-////                    new Question.Answer('b', "$ git copy 802f4f0", false),
-////                    new Question.Answer('c', "$ git cherry-pick 802f4f0", true)
-////            );
-////            new Question(QuestionCategory.GIT, "Jaka komenda wyświetla istniejące commity",
-////                    new Question.Answer('a', "$ git log", true),
-////                    new Question.Answer('b', "$ git list", false),
-////                    new Question.Answer('c', "$ git ll", false)
-//            );
+            new Question(QuestionCategory.GIT, "Jaka komenda wywołuje tzw. \"niezależny kontener\", do którego trafiają zmiany, które zaszły od ostatniego commitu, oraz nowoutworzone pliki",
+                    new Question.Answer('a', "$ git stash", false),
+                    new Question.Answer('b', "$ git stash -u", true),
+                    new Question.Answer('c', "$ git stash pop", false)
+            );
+            new Question(QuestionCategory.GIT, "Jaka komenda przywróci wszystkie zmiany z commita 802f4f0, tworząc nowy commit",
+                    new Question.Answer('a', "$ git reset 802f4f0", false),
+                    new Question.Answer('b', "$ git restore 802f4f0", false),
+                    new Question.Answer('c', "$ git revert 802f4f0", true)
+            );
+            new Question(QuestionCategory.GIT, "Jaka komenda wycofuje próbę merge, jeżeli wystąpił konflikt",
+                    new Question.Answer('a', "$ git merge --abort", true),
+                    new Question.Answer('b', "$ git abort", false),
+                    new Question.Answer('c', "$ git restore", false),
+                    new Question.Answer('d', "$ git merge restore", false)
+            );
+            new Question(QuestionCategory.GIT, "Jaka komenda skopiuje commit 802f4f0 do branch, na którym jesteś zacheckoutowany",
+                    new Question.Answer('a', "$ git cherry --pick 802f4f0", false),
+                    new Question.Answer('b', "$ git copy 802f4f0", false),
+                    new Question.Answer('c', "$ git cherry-pick 802f4f0", true)
+            );
+            new Question(QuestionCategory.GIT, "Jaka komenda wyświetla istniejące commity",
+                    new Question.Answer('a', "$ git log", true),
+                    new Question.Answer('b', "$ git list", false),
+                    new Question.Answer('c', "$ git ll", false)
+            );
             new Question(QuestionCategory.GIT, "Co robi komenda git restore",
                     new Question.Answer('a', "Pozwala na wycofanie aktualnie wprowadzonych zmian", true),
                     new Question.Answer('b', "Najczęściej wykorzystywana na zmianach jeszcze niezacommitowanych", true),

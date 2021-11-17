@@ -22,5 +22,6 @@ public class Main {
         Quiz quiz = new Quiz();
         quiz.run(COUNT_OF_QUESTION_TO_BE_DISPLAYED);
 
+
     }
 }

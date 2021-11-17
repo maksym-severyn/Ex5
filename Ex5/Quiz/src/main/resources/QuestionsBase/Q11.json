@@ -1,0 +1,20 @@
+{
+  "id" : 11,
+  "questionAndAnswers" : {
+    "Jaka komenda wywołuje tzw. \"niezależny kontener\", do którego trafiają zmiany, które zaszły od ostatniego commitu, oraz nowoutworzone pliki" : [ {
+      "letter" : "a",
+      "answer" : "$ git stash",
+      "correct" : false
+    }, {
+      "letter" : "b",
+      "answer" : "$ git stash -u",
+      "correct" : true
+    }, {
+      "letter" : "c",
+      "answer" : "$ git stash pop",
+      "correct" : false
+    } ]
+  },
+  "questionCategory" : "GIT",
+  "questionType" : "SINGLE_CHOICE"
+}

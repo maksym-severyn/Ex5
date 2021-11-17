@@ -1,20 +1,20 @@
 {
   "id" : 4,
   "questionAndAnswers" : {
-    "Wybierz prawidłowe stwierdzenia" : [ {
+    "Wybierz prawidłowe stwierdzenie" : [ {
       "letter" : "a",
-      "answer" : "Mapy implementują interfejs Iterable",
+      "answer" : "Lambdy zostały dodane do Java SE od wersji 1.7",
       "correct" : false
     }, {
       "letter" : "b",
-      "answer" : "Gson nie jest biblioteką, stworzoną przez Yahoo",
-      "correct" : true
+      "answer" : "TreeMap zachowuje kolejność dodawania elementów",
+      "correct" : false
     }, {
       "letter" : "c",
-      "answer" : "Za pomocą biblioteki Jackson można zapisywać dane do plików xml",
+      "answer" : "W mapach iteruje się po klaczach mapy",
       "correct" : true
     } ]
   },
   "questionCategory" : "JAVA_SE",
-  "questionType" : "MULTIPLE_CHOICE"
+  "questionType" : "SINGLE_CHOICE"
 }

@@ -1,20 +1,20 @@
 {
   "id" : 2,
   "questionAndAnswers" : {
-    "Określ sposób działania interfejsu funkcjonalnego Supplier" : [ {
+    "W jaki sposób można dostać się do zawartości HashSet" : [ {
       "letter" : "a",
-      "answer" : "Pobiera jedną wartość, i zwraca boolean",
-      "correct" : false
+      "answer" : "Za pomocą iteratora",
+      "correct" : true
     }, {
       "letter" : "b",
-      "answer" : "Nic nie pobiera",
-      "correct" : true
+      "answer" : "Za pomocą metody get()",
+      "correct" : false
     }, {
       "letter" : "c",
-      "answer" : "Coś zwraca",
-      "correct" : true
+      "answer" : "Za pomocą metody getValue()",
+      "correct" : false
     } ]
   },
   "questionCategory" : "JAVA_SE",
-  "questionType" : "MULTIPLE_CHOICE"
+  "questionType" : "SINGLE_CHOICE"
 }

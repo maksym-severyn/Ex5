@@ -1,24 +1,20 @@
 {
   "id" : 5,
   "questionAndAnswers" : {
-    "Wybierz prawidłowe stwierdzenia" : [ {
+    "Wybierz prawidłowe stwierdzenie" : [ {
       "letter" : "a",
-      "answer" : "Można utworzyć obiekt z klasy abstrakcyjnej",
-      "correct" : false
+      "answer" : "Lambdy są dostępne w Java SE wersji 11",
+      "correct" : true
     }, {
       "letter" : "b",
-      "answer" : "Nie można utworzyć obiektu z klasy abstrakcyjnej",
-      "correct" : true
-    }, {
-      "letter" : "c",
-      "answer" : "Polecenie prettyLooking() z biblioteki Gson pozwala na ładne formatowanie zawartości plików json",
+      "answer" : "LinkedHashMap przechowuje elementy w formie posortowanej",
       "correct" : false
     }, {
-      "letter" : "d",
-      "answer" : "Lambdy są elementami programowania funkcyjnego",
-      "correct" : true
+      "letter" : "c",
+      "answer" : "W celu sortowania mapy neleży uzyć metody order()",
+      "correct" : false
     } ]
   },
   "questionCategory" : "JAVA_SE",
-  "questionType" : "MULTIPLE_CHOICE"
+  "questionType" : "SINGLE_CHOICE"
 }

@@ -1,0 +1,20 @@
+{
+  "id" : 15,
+  "questionAndAnswers" : {
+    "Jaka komenda wyświetla istniejące commity" : [ {
+      "letter" : "a",
+      "answer" : "$ git log",
+      "correct" : true
+    }, {
+      "letter" : "b",
+      "answer" : "$ git list",
+      "correct" : false
+    }, {
+      "letter" : "c",
+      "answer" : "$ git ll",
+      "correct" : false
+    } ]
+  },
+  "questionCategory" : "GIT",
+  "questionType" : "SINGLE_CHOICE"
+}

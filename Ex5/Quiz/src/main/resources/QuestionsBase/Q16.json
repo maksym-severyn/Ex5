@@ -1,0 +1,20 @@
+{
+  "id" : 16,
+  "questionAndAnswers" : {
+    "Co robi komenda git restore" : [ {
+      "letter" : "a",
+      "answer" : "Pozwala na wycofanie aktualnie wprowadzonych zmian",
+      "correct" : true
+    }, {
+      "letter" : "b",
+      "answer" : "Najczęściej wykorzystywana na zmianach jeszcze niezacommitowanych",
+      "correct" : true
+    }, {
+      "letter" : "c",
+      "answer" : "Domyślnie usunie zmiany untracked (nie dodane do Staging area)",
+      "correct" : true
+    } ]
+  },
+  "questionCategory" : "GIT",
+  "questionType" : "MULTIPLE_CHOICE"
+}

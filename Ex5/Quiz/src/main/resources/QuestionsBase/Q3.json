@@ -1,20 +1,20 @@
 {
   "id" : 3,
   "questionAndAnswers" : {
-    "Wybierz prawidłowe stwierdzenia" : [ {
+    "W jaki sposób mozna dodać do istniejącej tablicy int[] i = {1,2,3} kolejną pozycję, tak, aby mieć i = {1,2,3,4}" : [ {
       "letter" : "a",
-      "answer" : "Przy standardowej serializacji można korzystać z obiektu klasy FileOutputStream",
-      "correct" : true
+      "answer" : "Za pomocą polecenia i.add(3,4)",
+      "correct" : false
     }, {
       "letter" : "b",
-      "answer" : "Standardowa serializacja nie serializuje ENUMy",
+      "answer" : "Najpierw utworzyć nową tablicę o większej liczbie elementów. Następnie dodać zawartość z tablicy pierwotnej, a następnie dodać element \"4\"",
       "correct" : true
     }, {
       "letter" : "c",
-      "answer" : "Przy użyciu słowa transient do konkretnego pola, nie będzie ono serializowane",
-      "correct" : true
+      "answer" : "Za pomocą polecenia i.put(3,4)",
+      "correct" : false
     } ]
   },
   "questionCategory" : "JAVA_SE",
-  "questionType" : "MULTIPLE_CHOICE"
+  "questionType" : "SINGLE_CHOICE"
 }

@@ -1,0 +1,20 @@
+{
+  "id" : 12,
+  "questionAndAnswers" : {
+    "Jaka komenda przywróci wszystkie zmiany z commita 802f4f0, tworząc nowy commit" : [ {
+      "letter" : "a",
+      "answer" : "$ git reset 802f4f0",
+      "correct" : false
+    }, {
+      "letter" : "b",
+      "answer" : "$ git restore 802f4f0",
+      "correct" : false
+    }, {
+      "letter" : "c",
+      "answer" : "$ git revert 802f4f0",
+      "correct" : true
+    } ]
+  },
+  "questionCategory" : "GIT",
+  "questionType" : "SINGLE_CHOICE"
+}

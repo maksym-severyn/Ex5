@@ -1,20 +1,20 @@
 {
   "id" : 1,
   "questionAndAnswers" : {
-    "Klasę anonimową można utworzyć z" : [ {
+    "Język Java cechuje się tym, że" : [ {
       "letter" : "a",
-      "answer" : "Interfejsu",
-      "correct" : true
+      "answer" : "Jest językiem stricte programowania funkcyjnego",
+      "correct" : false
     }, {
       "letter" : "b",
-      "answer" : "Klasy abstrakcyjnej",
-      "correct" : true
+      "answer" : "Jest językiem stricte programowania obiektowego",
+      "correct" : false
     }, {
       "letter" : "c",
-      "answer" : "Klasy publicznej",
-      "correct" : false
+      "answer" : "Zawiera elementy programowania funkcyjnego",
+      "correct" : true
     } ]
   },
   "questionCategory" : "JAVA_SE",
-  "questionType" : "MULTIPLE_CHOICE"
+  "questionType" : "SINGLE_CHOICE"
 }

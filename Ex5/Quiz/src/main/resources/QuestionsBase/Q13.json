@@ -1,0 +1,24 @@
+{
+  "id" : 13,
+  "questionAndAnswers" : {
+    "Jaka komenda wycofuje próbę merge, jeżeli wystąpił konflikt" : [ {
+      "letter" : "a",
+      "answer" : "$ git merge --abort",
+      "correct" : true
+    }, {
+      "letter" : "b",
+      "answer" : "$ git abort",
+      "correct" : false
+    }, {
+      "letter" : "c",
+      "answer" : "$ git restore",
+      "correct" : false
+    }, {
+      "letter" : "d",
+      "answer" : "$ git merge restore",
+      "correct" : false
+    } ]
+  },
+  "questionCategory" : "GIT",
+  "questionType" : "SINGLE_CHOICE"
+}

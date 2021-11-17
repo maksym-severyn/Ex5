@@ -154,13 +154,14 @@ public class Display {
             Util.makeDelay(2000);
         } else {
             System.out.println("Odpowiedź nie prawidłowa... :(");
-            Util.makeDelay(4000);
+            Util.makeDelay(1000);
             System.out.println("Poprawna(-e) odpowiedź(-i) to:");
             for (Question.Answer answer : answerList) {
                 if (answer.isCorrect()) {
                     System.out.println(answer);
                 }
             }
+            Util.makeDelay(3000);
         }
         System.out.println("=============================================================");
         System.out.println("");

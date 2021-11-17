@@ -4,7 +4,6 @@ import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Question implements Comparable<Question> {
-    public static final ServiceQuestionsAndUsers<Question> QUESTION_SERVICE = new ServiceQuestionsAndUsers<>();
 
     private long id;
     private Map<String, TreeSet<Answer>> questionAndAnswers;
@@ -28,7 +27,7 @@ public class Question implements Comparable<Question> {
         questionAndAnswers.put(questionContent,answersForQuestion);
 
         assignQuestionType();
-        QUESTION_SERVICE.writeObjectToBase(this, Main.QUESTIONS_BASE_PATH);
+        Main.QUESTION_SERVICE.writeObjectToBase(this, Main.QUESTIONS_BASE_PATH);
     }
 
     private void assignQuestionType(){
@@ -50,7 +49,7 @@ public class Question implements Comparable<Question> {
     }
 
     private long generateId(){
-        List<Question> questionList = QUESTION_SERVICE.readObjectsFromBase(Question.class, Main.QUESTIONS_BASE_PATH);
+        List<Question> questionList = Main.QUESTION_SERVICE.readObjectsFromBase(Question.class, Main.QUESTIONS_BASE_PATH);
         Collections.sort(questionList, Collections.reverseOrder());
         if (questionList == null || questionList.size() == 0) {
             return 1;

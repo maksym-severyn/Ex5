@@ -1,20 +1,23 @@
 package pl.isa;
 
 import java.time.LocalDateTime;
+import java.util.Collections;
+import java.util.List;
+
+import static pl.isa.Main.QUESTION_SERVICE;
 
 public class User {
     private long id;
     private String nameAndSurname;
-    private LocalDateTime dateOfQuiz;
     private Quiz quiz;
 
     //the default constructor needs for correct working of Jackson
     //TODO: be sure that this is private
-    public User() {
+    private User() {
     }
 
-    public User(long id, String nameAndSurname) {
-        this.id = id;
+    public User(String nameAndSurname) {
+        this.id = generateId();
         this.nameAndSurname = nameAndSurname;
     }
 
@@ -34,16 +37,18 @@ public class User {
         this.nameAndSurname = nameAndSurname;
     }
 
-    public LocalDateTime getDateOfQuiz() {
-        return dateOfQuiz;
-    }
-
-    public void setDateOfQuiz(LocalDateTime dateOfQuiz) {
-        this.dateOfQuiz = dateOfQuiz;
-    }
-
     public Quiz getQuiz() {
         return quiz;
+    }
+
+    private long generateId(){
+        List<User> userList = Main.USER_SERVICE.readObjectsFromBase(User.class, Main.USERS_BASE_PATH);
+        Collections.sort(userList, Collections.reverseOrder());
+        if (userList == null || userList.size() == 0) {
+            return 1;
+        } else {
+            return userList.get(0).getId() + 1;
+        }
     }
 
     public void setQuiz(Quiz quiz) {

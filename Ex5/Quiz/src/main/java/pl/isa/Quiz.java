@@ -3,11 +3,14 @@ package pl.isa;
 import pl.isa.util.ReturnToStartException;
 import pl.isa.util.Util;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import static pl.isa.Main.QUESTION_SERVICE;
+import static pl.isa.Main.USER_SERVICE;
 
 public class Quiz {
+    private LocalDateTime dateOfQuiz;
     private QuestionPool questionPool;
     private List<Question> assignedQuestions;
     private QuestionType selectedQuestionType;
@@ -21,14 +24,70 @@ public class Quiz {
         incorrectAnswers = 0;
     }
 
+    public LocalDateTime getDateOfQuiz() {
+        return dateOfQuiz;
+    }
+
+    public void setDateOfQuiz(LocalDateTime dateOfQuiz) {
+        this.dateOfQuiz = dateOfQuiz;
+    }
+
+    public QuestionPool getQuestionPool() {
+        return questionPool;
+    }
+
+    public void setQuestionPool(QuestionPool questionPool) {
+        this.questionPool = questionPool;
+    }
+
+    public List<Question> getAssignedQuestions() {
+        return assignedQuestions;
+    }
+
+    public void setAssignedQuestions(List<Question> assignedQuestions) {
+        this.assignedQuestions = assignedQuestions;
+    }
+
+    public QuestionType getSelectedQuestionType() {
+        return selectedQuestionType;
+    }
+
+    public void setSelectedQuestionType(QuestionType selectedQuestionType) {
+        this.selectedQuestionType = selectedQuestionType;
+    }
+
+    public QuestionCategory getSelectedQuestionCategory() {
+        return selectedQuestionCategory;
+    }
+
+    public void setSelectedQuestionCategory(QuestionCategory selectedQuestionCategory) {
+        this.selectedQuestionCategory = selectedQuestionCategory;
+    }
+
+    public int getCorrectAnswers() {
+        return correctAnswers;
+    }
+
+    public void setCorrectAnswers(int correctAnswers) {
+        this.correctAnswers = correctAnswers;
+    }
+
+    public int getIncorrectAnswers() {
+        return incorrectAnswers;
+    }
+
+    public void setIncorrectAnswers(int incorrectAnswers) {
+        this.incorrectAnswers = incorrectAnswers;
+    }
+
     public void run(int countOfQuestionToBeDisplayed) {
         List<Question> wholeQuestionBase = questionPool.getQuestionList();
 
         Display display = new Display();
-        User user = new User();
+        User user = null;
 
         try {
-            user.setNameAndSurname(display.selectAuthorization());
+            user = new User(display.selectAuthorization());
         } catch (ReturnToStartException e) {
             e.getMessage();
             run(countOfQuestionToBeDisplayed);
@@ -61,6 +120,11 @@ public class Quiz {
         }
         System.out.println("\n=======================KONIEC TESTU=======================");
         System.out.println("Na " + (correctAnswers + incorrectAnswers) + " pytań udzielono: " + correctAnswers + " poprawnych odpowiedzi");
+        this.dateOfQuiz = LocalDateTime.now();
+
+        user.setQuiz(this);
+
+        Main.USER_SERVICE.writeObjectToBase(user,Main.USERS_BASE_PATH);
 
     }
 }

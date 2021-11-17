@@ -1,20 +1,20 @@
 {
   "id" : 8,
   "questionAndAnswers" : {
-    "Jakie komendy pozawalają modyfikować historii w Gicie" : [ {
+    "Wybierz prawidłowe stwierdzenia" : [ {
       "letter" : "a",
-      "answer" : "$ git revert",
+      "answer" : "Przy standardowej serializacji można korzystać z obiektu klasy FileOutputStream",
       "correct" : true
     }, {
       "letter" : "b",
-      "answer" : "$ git reload",
-      "correct" : false
+      "answer" : "Standardowa serializacja nie serializuje ENUMy",
+      "correct" : true
     }, {
       "letter" : "c",
-      "answer" : "$ git rebase",
+      "answer" : "Przy użyciu słowa transient do konkretnego pola, nie będzie ono serializowane",
       "correct" : true
     } ]
   },
-  "questionCategory" : "GIT",
+  "questionCategory" : "JAVA_SE",
   "questionType" : "MULTIPLE_CHOICE"
 }

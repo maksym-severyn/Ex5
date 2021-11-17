@@ -1,20 +1,20 @@
 {
   "id" : 9,
   "questionAndAnswers" : {
-    "Określ właściwości tag-ów" : [ {
+    "Wybierz prawidłowe stwierdzenia" : [ {
       "letter" : "a",
-      "answer" : "Zwykłe tagi są ignorowane prze komendę push",
-      "correct" : true
+      "answer" : "Mapy implementują interfejs Iterable",
+      "correct" : false
     }, {
       "letter" : "b",
-      "answer" : "Tag może być ustawiony na commit lub na branch",
+      "answer" : "Gson nie jest biblioteką, stworzoną przez Yahoo",
       "correct" : true
     }, {
       "letter" : "c",
-      "answer" : "Tag może zmodyfikować zawartość commita",
-      "correct" : false
+      "answer" : "Za pomocą biblioteki Jackson można zapisywać dane do plików xml",
+      "correct" : true
     } ]
   },
-  "questionCategory" : "GIT",
+  "questionCategory" : "JAVA_SE",
   "questionType" : "MULTIPLE_CHOICE"
 }
