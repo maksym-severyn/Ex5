@@ -1,0 +1,20 @@
+{
+  "id" : 2,
+  "questionAndAnswers" : {
+    "Określ sposób działania interfejsu funkcjonalnego Supplier" : [ {
+      "letter" : "a",
+      "answer" : "Pobiera jedną wartość, i zwraca boolean",
+      "correct" : false
+    }, {
+      "letter" : "b",
+      "answer" : "Nic nie pobiera",
+      "correct" : true
+    }, {
+      "letter" : "c",
+      "answer" : "Coś zwraca",
+      "correct" : true
+    } ]
+  },
+  "questionCategory" : "JAVA_SE",
+  "questionType" : "MULTIPLE_CHOICE"
+}

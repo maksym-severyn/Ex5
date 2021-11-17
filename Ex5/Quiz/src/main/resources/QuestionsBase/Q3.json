@@ -1,0 +1,20 @@
+{
+  "id" : 3,
+  "questionAndAnswers" : {
+    "Wybierz prawidłowe stwierdzenia" : [ {
+      "letter" : "a",
+      "answer" : "Przy standardowej serializacji można korzystać z obiektu klasy FileOutputStream",
+      "correct" : true
+    }, {
+      "letter" : "b",
+      "answer" : "Standardowa serializacja nie serializuje ENUMy",
+      "correct" : true
+    }, {
+      "letter" : "c",
+      "answer" : "Przy użyciu słowa transient do konkretnego pola, nie będzie ono serializowane",
+      "correct" : true
+    } ]
+  },
+  "questionCategory" : "JAVA_SE",
+  "questionType" : "MULTIPLE_CHOICE"
+}

@@ -1,0 +1,20 @@
+{
+  "id" : 9,
+  "questionAndAnswers" : {
+    "Określ właściwości tag-ów" : [ {
+      "letter" : "a",
+      "answer" : "Zwykłe tagi są ignorowane prze komendę push",
+      "correct" : true
+    }, {
+      "letter" : "b",
+      "answer" : "Tag może być ustawiony na commit lub na branch",
+      "correct" : true
+    }, {
+      "letter" : "c",
+      "answer" : "Tag może zmodyfikować zawartość commita",
+      "correct" : false
+    } ]
+  },
+  "questionCategory" : "GIT",
+  "questionType" : "MULTIPLE_CHOICE"
+}

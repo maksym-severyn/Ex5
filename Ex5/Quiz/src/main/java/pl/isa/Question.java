@@ -4,21 +4,23 @@ import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Question implements Comparable<Question> {
+    public static final ServiceQuestionsAndUsers<Question> QUESTION_SERVICE = new ServiceQuestionsAndUsers<>();
+
     private long id;
-    private Map<String, Set<Answer>> questionAndAnswers;
-    private Set<Map.Entry<String,Set<Answer>>> qwe;
+    private Map<String, TreeSet<Answer>> questionAndAnswers;
     private QuestionCategory questionCategory;
     private QuestionType questionType;
 
     //the default constructor needs for correct working of Jackson
-    private Question() {
+    //TODO: be sure that this is private
+    public Question() {
     }
 
     public Question(QuestionCategory questionCategory, String questionContent, Answer... answers) {
         this.id = generateId();
         this.questionCategory = questionCategory;
 
-        Set<Answer> answersForQuestion = new TreeSet<>();
+        TreeSet<Answer> answersForQuestion = new TreeSet<>();
         for (Answer answer : answers) {
             answersForQuestion.add(answer);
         }
@@ -26,7 +28,7 @@ public class Question implements Comparable<Question> {
         questionAndAnswers.put(questionContent,answersForQuestion);
 
         assignQuestionType();
-        QuestionService.loadQuestionToBase(this);
+        QUESTION_SERVICE.writeObjectToBase(this, Main.QUESTIONS_BASE_PATH);
     }
 
     private void assignQuestionType(){
@@ -48,7 +50,7 @@ public class Question implements Comparable<Question> {
     }
 
     private long generateId(){
-        List<Question> questionList = QuestionService.loadQuestionsFromBase();
+        List<Question> questionList = QUESTION_SERVICE.readObjectsFromBase(Question.class, Main.QUESTIONS_BASE_PATH);
         Collections.sort(questionList, Collections.reverseOrder());
         if (questionList == null || questionList.size() == 0) {
             return 1;
@@ -61,7 +63,7 @@ public class Question implements Comparable<Question> {
         return id;
     }
 
-    public Map<String, Set<Answer>> getQuestionAndAnswers() {
+    public Map<String, TreeSet<Answer>> getQuestionAndAnswers() {
         return questionAndAnswers;
     }
 
@@ -72,6 +74,7 @@ public class Question implements Comparable<Question> {
     public QuestionType getQuestionType() {
         return questionType;
     }
+
 
     @Override
     public int compareTo(Question o) {
@@ -129,6 +132,11 @@ public class Question implements Comparable<Question> {
         @Override
         public int hashCode() {
             return Objects.hash( answer);
+        }
+
+        @Override
+        public String toString() {
+            return letter + ") " + answer;
         }
 
         @Override

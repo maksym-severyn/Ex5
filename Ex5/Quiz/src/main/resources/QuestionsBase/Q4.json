@@ -1,0 +1,20 @@
+{
+  "id" : 4,
+  "questionAndAnswers" : {
+    "Wybierz prawidłowe stwierdzenia" : [ {
+      "letter" : "a",
+      "answer" : "Mapy implementują interfejs Iterable",
+      "correct" : false
+    }, {
+      "letter" : "b",
+      "answer" : "Gson nie jest biblioteką, stworzoną przez Yahoo",
+      "correct" : true
+    }, {
+      "letter" : "c",
+      "answer" : "Za pomocą biblioteki Jackson można zapisywać dane do plików xml",
+      "correct" : true
+    } ]
+  },
+  "questionCategory" : "JAVA_SE",
+  "questionType" : "MULTIPLE_CHOICE"
+}

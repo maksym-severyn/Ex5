@@ -1,13 +1,19 @@
 package pl.isa;
 
 public enum QuestionType {
-    SINGLE_CHOICE("Test jednokrotnego wyboru"),
-    MULTIPLE_CHOICE("Test wielokrotnego wyboru");
+    SINGLE_CHOICE("1","Test jednokrotnego wyboru"),
+    MULTIPLE_CHOICE("2","Test wielokrotnego wyboru");
 
+    private String sequentialNumber;
     private String explaining;
 
-    QuestionType(String explaining) {
-    this.explaining = explaining;
+    QuestionType(String sequentialNumber, String explaining) {
+        this.sequentialNumber = sequentialNumber;
+        this.explaining = explaining;
+    }
+
+    public String getSequentialNumber() {
+        return sequentialNumber;
     }
 
     public String getExplaining() {

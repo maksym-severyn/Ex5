@@ -1,0 +1,20 @@
+{
+  "id" : 10,
+  "questionAndAnswers" : {
+    "Wybierz prawidłowe stwierdzenie" : [ {
+      "letter" : "a",
+      "answer" : "Git działa na repozytoriach",
+      "correct" : true
+    }, {
+      "letter" : "b",
+      "answer" : "Repozytoria mogą być lokalne i zdalne",
+      "correct" : true
+    }, {
+      "letter" : "c",
+      "answer" : "Dobrą praktyką jest zrobienie całego projektu, a dopiero następnie utworzenie pierwszego commita",
+      "correct" : false
+    } ]
+  },
+  "questionCategory" : "GIT",
+  "questionType" : "MULTIPLE_CHOICE"
+}

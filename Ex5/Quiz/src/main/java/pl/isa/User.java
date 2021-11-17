@@ -8,6 +8,11 @@ public class User {
     private LocalDateTime dateOfQuiz;
     private Quiz quiz;
 
+    //the default constructor needs for correct working of Jackson
+    //TODO: be sure that this is private
+    public User() {
+    }
+
     public User(long id, String nameAndSurname) {
         this.id = id;
         this.nameAndSurname = nameAndSurname;

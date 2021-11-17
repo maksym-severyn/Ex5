@@ -1,0 +1,20 @@
+{
+  "id" : 1,
+  "questionAndAnswers" : {
+    "Klasę anonimową można utworzyć z" : [ {
+      "letter" : "a",
+      "answer" : "Interfejsu",
+      "correct" : true
+    }, {
+      "letter" : "b",
+      "answer" : "Klasy abstrakcyjnej",
+      "correct" : true
+    }, {
+      "letter" : "c",
+      "answer" : "Klasy publicznej",
+      "correct" : false
+    } ]
+  },
+  "questionCategory" : "JAVA_SE",
+  "questionType" : "MULTIPLE_CHOICE"
+}

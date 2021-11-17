@@ -1,0 +1,24 @@
+{
+  "id" : 5,
+  "questionAndAnswers" : {
+    "Wybierz prawidłowe stwierdzenia" : [ {
+      "letter" : "a",
+      "answer" : "Można utworzyć obiekt z klasy abstrakcyjnej",
+      "correct" : false
+    }, {
+      "letter" : "b",
+      "answer" : "Nie można utworzyć obiektu z klasy abstrakcyjnej",
+      "correct" : true
+    }, {
+      "letter" : "c",
+      "answer" : "Polecenie prettyLooking() z biblioteki Gson pozwala na ładne formatowanie zawartości plików json",
+      "correct" : false
+    }, {
+      "letter" : "d",
+      "answer" : "Lambdy są elementami programowania funkcyjnego",
+      "correct" : true
+    } ]
+  },
+  "questionCategory" : "JAVA_SE",
+  "questionType" : "MULTIPLE_CHOICE"
+}

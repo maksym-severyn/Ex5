@@ -1,0 +1,20 @@
+{
+  "id" : 7,
+  "questionAndAnswers" : {
+    "Za pomocą której komendy możemy pobierać zmiany ze zdalnego repozytorium" : [ {
+      "letter" : "a",
+      "answer" : "$ git fetch",
+      "correct" : true
+    }, {
+      "letter" : "b",
+      "answer" : "$ git pull",
+      "correct" : true
+    }, {
+      "letter" : "c",
+      "answer" : "$ git add",
+      "correct" : false
+    } ]
+  },
+  "questionCategory" : "GIT",
+  "questionType" : "MULTIPLE_CHOICE"
+}
