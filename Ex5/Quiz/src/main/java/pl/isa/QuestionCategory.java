@@ -2,8 +2,7 @@ package pl.isa;
 
 public enum QuestionCategory {
     GIT("Podstawy Git"),
-    JAVA_SE("Podstawy Java SE"),
-    SQL("Podstawy Microsoft SQL Server");
+    JAVA_SE("Podstawy Java SE");
 
     private String explaining;
 
