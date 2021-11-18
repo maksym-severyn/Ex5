@@ -1,5 +1,69 @@
 {
   "id" : 1,
-  "nameAndSurname" : "Bogdan Romanowski",
-  "quiz" : null
+  "nameAndSurname" : "Olek",
+  "quiz" : {
+    "dateOfQuiz" : "2021-11-18 14:11:58.730",
+    "assignedQuestions" : [ {
+      "id" : 19,
+      "questionAndAnswers" : {
+        "Określ właściwości tag-ów" : [ {
+          "letter" : "a",
+          "answer" : "Zwykłe tagi są ignorowane przez komendę push",
+          "correct" : true
+        }, {
+          "letter" : "b",
+          "answer" : "Tag może być ustawiony na commit lub na branch",
+          "correct" : true
+        }, {
+          "letter" : "c",
+          "answer" : "Tag może zmodyfikować zawartość commita",
+          "correct" : false
+        } ]
+      },
+      "questionCategory" : "GIT",
+      "questionType" : "MULTIPLE_CHOICE"
+    }, {
+      "id" : 16,
+      "questionAndAnswers" : {
+        "Co robi komenda git restore" : [ {
+          "letter" : "a",
+          "answer" : "Pozwala na wycofanie aktualnie wprowadzonych zmian",
+          "correct" : true
+        }, {
+          "letter" : "b",
+          "answer" : "Najczęściej wykorzystywana na zmianach jeszcze niezacommitowanych",
+          "correct" : true
+        }, {
+          "letter" : "c",
+          "answer" : "Domyślnie usunie zmiany untracked (nie dodane do Staging area)",
+          "correct" : true
+        } ]
+      },
+      "questionCategory" : "GIT",
+      "questionType" : "MULTIPLE_CHOICE"
+    }, {
+      "id" : 18,
+      "questionAndAnswers" : {
+        "Jakie komendy pozwalają modyfikować historię w Gicie" : [ {
+          "letter" : "a",
+          "answer" : "$ git revert",
+          "correct" : true
+        }, {
+          "letter" : "b",
+          "answer" : "$ git reload",
+          "correct" : false
+        }, {
+          "letter" : "c",
+          "answer" : "$ git rebase",
+          "correct" : true
+        } ]
+      },
+      "questionCategory" : "GIT",
+      "questionType" : "MULTIPLE_CHOICE"
+    } ],
+    "selectedQuestionType" : "MULTIPLE_CHOICE",
+    "selectedQuestionCategory" : "GIT",
+    "correctAnswers" : 1,
+    "incorrectAnswers" : 2
+  }
 }

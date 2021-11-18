@@ -151,7 +151,7 @@ public class Display {
         System.out.println("=============================================================");
         if (result) {
             System.out.println("Odpowiedź prawidłowa!");
-            Util.makeDelay(2000);
+            Util.makeDelay(1000);
         } else {
             System.out.println("Odpowiedź nie prawidłowa... :(");
             Util.makeDelay(1000);
@@ -161,7 +161,7 @@ public class Display {
                     System.out.println(answer);
                 }
             }
-            Util.makeDelay(3000);
+            Util.makeDelay(1500);
         }
         System.out.println("=============================================================");
         System.out.println("");

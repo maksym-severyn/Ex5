@@ -2,6 +2,7 @@ package pl.isa;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import pl.isa.Jackson.CreateObjectMapper;
 import pl.isa.comparators.RandomSorting;
 
 import java.io.File;
@@ -10,17 +11,21 @@ import java.io.IOException;
 import java.util.*;
 
 public class ServiceQuestionsAndUsers<E> {
-    E e;
+    public static final ObjectMapper OBJECT_MAPPER = new CreateObjectMapper().getObjectMapper().enable(SerializationFeature.INDENT_OUTPUT);
+            E e;
 
     public void writeObjectToBase(E object, String path){
-        ObjectMapper objectMapper = new ObjectMapper().enable(SerializationFeature.INDENT_OUTPUT);
+//        CreateObjectMapper objMap = new CreateObjectMapper();
+//        ObjectMapper objectMapper = objMap.getObjectMapper().enable(SerializationFeature.INDENT_OUTPUT);
+        //ObjectMapper objectMapper = new ObjectMapper().enable(SerializationFeature.INDENT_OUTPUT);
+        //objectMapper.registerModule()
         try {
             if (object instanceof User){
-                objectMapper.writeValue(new FileWriter(path + "/U" + ((User) object).getId() + ".json"), object);
+                OBJECT_MAPPER.writeValue(new FileWriter(path + "/U" + ((User) object).getId() + ".json"), object);
             } else if (object instanceof Question){
-                objectMapper.writeValue(new FileWriter(path + "/Q" + ((Question) object).getId() + ".json"), object);
+                OBJECT_MAPPER.writeValue(new FileWriter(path + "/Q" + ((Question) object).getId() + ".json"), object);
             } else {
-                objectMapper.writeValue(new FileWriter(path + "/" + object.toString() + ".json"), object);
+                OBJECT_MAPPER.writeValue(new FileWriter(path + "/" + object.toString() + ".json"), object);
             }
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -36,10 +41,10 @@ public class ServiceQuestionsAndUsers<E> {
             directory = new ArrayList<>(Arrays.asList(file.listFiles()));
         }
 
-        ObjectMapper objectMapper = new ObjectMapper().enable(SerializationFeature.INDENT_OUTPUT);
+//        com.fasterxml.jackson.databind.ObjectMapper objectMapper = new com.fasterxml.jackson.databind.ObjectMapper().enable(SerializationFeature.INDENT_OUTPUT);
         directory.forEach(f -> {
             try {
-                objectList.add(objectMapper.readValue(f, theClass));
+                objectList.add(OBJECT_MAPPER.readValue(f, theClass));
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
