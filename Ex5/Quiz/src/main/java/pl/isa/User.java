@@ -6,7 +6,7 @@ import java.util.List;
 
 import static pl.isa.Main.QUESTION_SERVICE;
 
-public class User {
+public class User implements Comparable<User> {
     private long id;
     private String nameAndSurname;
     private Quiz quiz;
@@ -53,5 +53,10 @@ public class User {
 
     public void setQuiz(Quiz quiz) {
         this.quiz = quiz;
+    }
+
+    @Override
+    public int compareTo(User o) {
+        return Integer.valueOf(String.valueOf(this.id - o.getId()));
     }
 }

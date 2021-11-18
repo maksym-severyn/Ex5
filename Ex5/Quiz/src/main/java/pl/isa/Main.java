@@ -22,6 +22,9 @@ public class Main {
         Quiz quiz = new Quiz();
         quiz.run(COUNT_OF_QUESTION_TO_BE_DISPLAYED);
 
+//        User user = new User("Bogdan Romanowski");
+//        USER_SERVICE.writeObjectToBase(user,USERS_BASE_PATH);
+
 
     }
 }

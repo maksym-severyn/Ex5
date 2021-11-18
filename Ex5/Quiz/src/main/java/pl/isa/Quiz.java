@@ -1,5 +1,6 @@
 package pl.isa;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import pl.isa.util.ReturnToStartException;
 import pl.isa.util.Util;
 
@@ -10,6 +11,7 @@ import static pl.isa.Main.QUESTION_SERVICE;
 import static pl.isa.Main.USER_SERVICE;
 
 public class Quiz {
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
     private LocalDateTime dateOfQuiz;
     private QuestionPool questionPool;
     private List<Question> assignedQuestions;
@@ -124,6 +126,8 @@ public class Quiz {
 
         user.setQuiz(this);
 
+
+        //tutaj jest problem!!!!!
         Main.USER_SERVICE.writeObjectToBase(user,Main.USERS_BASE_PATH);
 
     }
