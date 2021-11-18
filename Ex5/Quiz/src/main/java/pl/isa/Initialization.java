@@ -1,6 +1,9 @@
 package pl.isa;
 
 
+import pl.isa.Question.Question;
+import pl.isa.Question.QuestionCategory;
+
 public class Initialization {
 
     public static void fillBaseWithDefaultQuestions() {

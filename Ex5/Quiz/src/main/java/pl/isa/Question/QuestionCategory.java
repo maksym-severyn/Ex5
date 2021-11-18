@@ -1,4 +1,4 @@
-package pl.isa;
+package pl.isa.Question;
 
 public enum QuestionCategory {
     GIT("1","Podstawy Git"),

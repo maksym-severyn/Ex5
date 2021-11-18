@@ -1,7 +1,5 @@
 package pl.isa.util;
 
-import pl.isa.QuestionCategory;
-
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -20,7 +18,6 @@ public class Util {
         }
     }
 
-
     public static String getInputFromUser(String messageForUser, String regex, String errorMessage) {
         String inputFromUser;
 
@@ -29,6 +26,7 @@ public class Util {
         System.out.println("______________________________");
         inputFromUser = scanner.nextLine();
         if (inputFromUser.equals("0")) {
+            System.out.println("Wybrałeś(-aś) zamykanie...");
             return null;
         } else if (!(isStringValid(inputFromUser, regex))) {
             System.out.println(errorMessage);
@@ -45,7 +43,7 @@ public class Util {
 
     public static Object userInputCheck(Object object) throws ReturnToStartException {
         if (object == null) {
-            throw new ReturnToStartException("Wybrałeś powrót do menu głównego");
+            throw new ReturnToStartException("Wybrałeś powrót do początku");
         }
         return object;
     }

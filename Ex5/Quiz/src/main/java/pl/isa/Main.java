@@ -1,6 +1,7 @@
 package pl.isa;
 
-import java.util.List;
+import pl.isa.Question.Question;
+import pl.isa.util.Randomizer;
 
 public class Main {
     public static final String QUESTIONS_BASE_PATH = "src/main/resources/QuestionsBase";
@@ -14,17 +15,7 @@ public class Main {
     public static void main(String[] args) {
         Initialization.fillBaseWithDefaultQuestions();
 
-//        List<Question> questions = QUESTION_SERVICE.readObjectsFromBase(Question.class, QUESTIONS_BASE_PATH);
-//        Display display = new Display();
-//        QUESTION_SERVICE.randomSortingQuestions(questions);
-//        display.displayQuestionAndGetResult(questions.get(0), 1);
-
         Quiz quiz = new Quiz();
         quiz.run(COUNT_OF_QUESTION_TO_BE_DISPLAYED);
-
-//        User user = new User("Bogdan Romanowski");
-//        USER_SERVICE.writeObjectToBase(user,USERS_BASE_PATH);
-
-
     }
 }

@@ -1,4 +1,6 @@
-package pl.isa;
+package pl.isa.Question;
+
+import pl.isa.Main;
 
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -11,8 +13,8 @@ public class Question implements Comparable<Question> {
     private QuestionType questionType;
 
     //the default constructor needs for correct working of Jackson
-    //TODO: be sure that this is private
-    public Question() {
+    //the same with all getters/setters
+    private Question() {
     }
 
     public Question(QuestionCategory questionCategory, String questionContent, Answer... answers) {
@@ -80,12 +82,13 @@ public class Question implements Comparable<Question> {
         return Integer.valueOf(String.valueOf(this.id - o.getId()));
     }
 
-    static class Answer implements Comparable<Answer>{
+    public static class Answer implements Comparable<Answer>{
         private Character letter;
         private String answer;
         private boolean isCorrect;
 
         //the default constructor needs for correct working of Jackson
+        //the same with all getters/setters
         private Answer() {
         }
 

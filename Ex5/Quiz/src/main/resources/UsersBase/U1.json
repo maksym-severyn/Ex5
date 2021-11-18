@@ -1,47 +1,9 @@
 {
   "id" : 1,
-  "nameAndSurname" : "Olek",
+  "nameAndSurname" : "Marek",
   "quiz" : {
-    "dateOfQuiz" : "2021-11-18 14:11:58.730",
+    "dateOfQuiz" : "2021-11-18T15:58:03.993441556",
     "assignedQuestions" : [ {
-      "id" : 19,
-      "questionAndAnswers" : {
-        "Określ właściwości tag-ów" : [ {
-          "letter" : "a",
-          "answer" : "Zwykłe tagi są ignorowane przez komendę push",
-          "correct" : true
-        }, {
-          "letter" : "b",
-          "answer" : "Tag może być ustawiony na commit lub na branch",
-          "correct" : true
-        }, {
-          "letter" : "c",
-          "answer" : "Tag może zmodyfikować zawartość commita",
-          "correct" : false
-        } ]
-      },
-      "questionCategory" : "GIT",
-      "questionType" : "MULTIPLE_CHOICE"
-    }, {
-      "id" : 16,
-      "questionAndAnswers" : {
-        "Co robi komenda git restore" : [ {
-          "letter" : "a",
-          "answer" : "Pozwala na wycofanie aktualnie wprowadzonych zmian",
-          "correct" : true
-        }, {
-          "letter" : "b",
-          "answer" : "Najczęściej wykorzystywana na zmianach jeszcze niezacommitowanych",
-          "correct" : true
-        }, {
-          "letter" : "c",
-          "answer" : "Domyślnie usunie zmiany untracked (nie dodane do Staging area)",
-          "correct" : true
-        } ]
-      },
-      "questionCategory" : "GIT",
-      "questionType" : "MULTIPLE_CHOICE"
-    }, {
       "id" : 18,
       "questionAndAnswers" : {
         "Jakie komendy pozwalają modyfikować historię w Gicie" : [ {
@@ -60,10 +22,48 @@
       },
       "questionCategory" : "GIT",
       "questionType" : "MULTIPLE_CHOICE"
+    }, {
+      "id" : 20,
+      "questionAndAnswers" : {
+        "Wybierz prawidłowe stwierdzenie" : [ {
+          "letter" : "a",
+          "answer" : "Git działa na repozytoriach",
+          "correct" : true
+        }, {
+          "letter" : "b",
+          "answer" : "Repozytoria mogą być lokalne i zdalne",
+          "correct" : true
+        }, {
+          "letter" : "c",
+          "answer" : "Dobrą praktyką jest zrobienie całego projektu, a dopiero następnie utworzenie pierwszego commita",
+          "correct" : false
+        } ]
+      },
+      "questionCategory" : "GIT",
+      "questionType" : "MULTIPLE_CHOICE"
+    }, {
+      "id" : 17,
+      "questionAndAnswers" : {
+        "Za pomocą której komendy możemy pobierać zmiany ze zdalnego repozytorium" : [ {
+          "letter" : "a",
+          "answer" : "$ git fetch",
+          "correct" : true
+        }, {
+          "letter" : "b",
+          "answer" : "$ git pull",
+          "correct" : true
+        }, {
+          "letter" : "c",
+          "answer" : "$ git add",
+          "correct" : false
+        } ]
+      },
+      "questionCategory" : "GIT",
+      "questionType" : "MULTIPLE_CHOICE"
     } ],
     "selectedQuestionType" : "MULTIPLE_CHOICE",
     "selectedQuestionCategory" : "GIT",
-    "correctAnswers" : 1,
-    "incorrectAnswers" : 2
+    "correctAnswers" : 3,
+    "incorrectAnswers" : 0
   }
 }

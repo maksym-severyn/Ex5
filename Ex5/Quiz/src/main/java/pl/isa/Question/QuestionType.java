@@ -1,4 +1,4 @@
-package pl.isa;
+package pl.isa.Question;
 
 public enum QuestionType {
     SINGLE_CHOICE("1","Test jednokrotnego wyboru"),

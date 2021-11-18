@@ -1,10 +1,9 @@
 package pl.isa;
 
-import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.List;
 
-import static pl.isa.Main.QUESTION_SERVICE;
+import static pl.isa.Main.USER_SERVICE;
 
 public class User implements Comparable<User> {
     private long id;
@@ -12,7 +11,7 @@ public class User implements Comparable<User> {
     private Quiz quiz;
 
     //the default constructor needs for correct working of Jackson
-    //TODO: be sure that this is private
+    //the same with all getters/setters
     private User() {
     }
 
@@ -41,8 +40,8 @@ public class User implements Comparable<User> {
         return quiz;
     }
 
-    private long generateId(){
-        List<User> userList = Main.USER_SERVICE.readObjectsFromBase(User.class, Main.USERS_BASE_PATH);
+    private long generateId() {
+        List<User> userList = USER_SERVICE.readObjectsFromBase(User.class, Main.USERS_BASE_PATH);
         Collections.sort(userList, Collections.reverseOrder());
         if (userList == null || userList.size() == 0) {
             return 1;

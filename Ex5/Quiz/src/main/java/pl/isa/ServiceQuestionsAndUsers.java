@@ -3,6 +3,9 @@ package pl.isa;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import pl.isa.Jackson.CreateObjectMapper;
+import pl.isa.Question.Question;
+import pl.isa.Question.QuestionCategory;
+import pl.isa.Question.QuestionType;
 import pl.isa.comparators.RandomSorting;
 
 import java.io.File;
@@ -15,10 +18,6 @@ public class ServiceQuestionsAndUsers<E> {
             E e;
 
     public void writeObjectToBase(E object, String path){
-//        CreateObjectMapper objMap = new CreateObjectMapper();
-//        ObjectMapper objectMapper = objMap.getObjectMapper().enable(SerializationFeature.INDENT_OUTPUT);
-        //ObjectMapper objectMapper = new ObjectMapper().enable(SerializationFeature.INDENT_OUTPUT);
-        //objectMapper.registerModule()
         try {
             if (object instanceof User){
                 OBJECT_MAPPER.writeValue(new FileWriter(path + "/U" + ((User) object).getId() + ".json"), object);
@@ -41,7 +40,6 @@ public class ServiceQuestionsAndUsers<E> {
             directory = new ArrayList<>(Arrays.asList(file.listFiles()));
         }
 
-//        com.fasterxml.jackson.databind.ObjectMapper objectMapper = new com.fasterxml.jackson.databind.ObjectMapper().enable(SerializationFeature.INDENT_OUTPUT);
         directory.forEach(f -> {
             try {
                 objectList.add(OBJECT_MAPPER.readValue(f, theClass));

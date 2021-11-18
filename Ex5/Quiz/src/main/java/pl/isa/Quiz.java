@@ -1,6 +1,9 @@
 package pl.isa;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
+import pl.isa.Question.Question;
+import pl.isa.Question.QuestionCategory;
+import pl.isa.Question.QuestionPool;
+import pl.isa.Question.QuestionType;
 import pl.isa.util.ReturnToStartException;
 import pl.isa.util.Util;
 
@@ -83,12 +86,12 @@ public class Quiz {
 
         try {
             user = new User(display.selectAuthorization());
+            this.selectedQuestionCategory = (QuestionCategory) Util.userInputCheck(display.selectQuestionCategory());
+            this.selectedQuestionType = (QuestionType) Util.userInputCheck(display.selectQuestionType());
         } catch (ReturnToStartException e) {
-            e.getMessage();
-            run(countOfQuestionToBeDisplayed);
+            System.exit(0);
+            //run(countOfQuestionToBeDisplayed);
         }
-        this.selectedQuestionCategory = display.selectQuestionCategory();
-        this.selectedQuestionType = display.selectQuestionType();
 
         List<Question> parameterizedQuestionList = QUESTION_SERVICE.specifyQuestionsAccordingToCategoryAndType(selectedQuestionCategory, selectedQuestionType, wholeQuestionBase);
 
@@ -103,10 +106,15 @@ public class Quiz {
             List<Question.Answer> answerList = Main.QUESTION_SERVICE.getAnswerListFromQuestion(parameterizedQuestionList.get(i));
             List<Character> allAnswerLettersList = Main.QUESTION_SERVICE.getAllAnswerLettersList(answerList);
             List<Character> correctAnswerLettersList = Main.QUESTION_SERVICE.getCorrectAnswerLettersList(answerList);
-            boolean isCorrectAnswer;
 
-            display.displayQuestionAndGetResult(parameterizedQuestionList.get(i), i+1);
-            isCorrectAnswer = display.checkAnswer(display.getAnswerFromUser(typeOfQuestion, allAnswerLettersList),correctAnswerLettersList);
+            display.displayQuestion(parameterizedQuestionList.get(i), i+1);
+            Boolean isCorrectAnswer = null;
+            try {
+                isCorrectAnswer = display.checkAnswer(display.getAnswerFromUser(typeOfQuestion, allAnswerLettersList),correctAnswerLettersList);
+            } catch (ReturnToStartException e) {
+                System.exit(0);
+                //run(countOfQuestionToBeDisplayed);
+            }
             if(isCorrectAnswer){
                 this.correctAnswers++;
             } else {

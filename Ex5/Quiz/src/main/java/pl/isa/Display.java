@@ -1,5 +1,8 @@
 package pl.isa;
 
+import pl.isa.Question.Question;
+import pl.isa.Question.QuestionCategory;
+import pl.isa.Question.QuestionType;
 import pl.isa.util.ReturnToStartException;
 import pl.isa.util.Util;
 
@@ -24,7 +27,7 @@ public class Display {
                 "Źle wprowadzony typ danych. Spróbuj jeszcze raz");
     }
 
-    public QuestionCategory selectQuestionCategory() {
+    public QuestionCategory selectQuestionCategory() throws ReturnToStartException {
         System.out.println("Wybierz temat, którego będą dotyczyć pytania:");
         System.out.println("______________________________");
         for (int i = 0; i < QuestionCategory.values().length; i++) {
@@ -42,7 +45,7 @@ public class Display {
         return validateAndAssignQuestionCategory(userInput);
     }
 
-    private QuestionCategory validateAndAssignQuestionCategory(String userInput) {
+    private QuestionCategory validateAndAssignQuestionCategory(String userInput) throws ReturnToStartException {
         QuestionCategory questionCategory = null;
         for (QuestionCategory i : QuestionCategory.values()) {
             if (i.getSequentialNumber().equals(userInput)) {
@@ -90,7 +93,7 @@ public class Display {
         return questionType;
     }
 
-    public void displayQuestionAndGetResult(Question question, long counter) {
+    public void displayQuestion(Question question, long counter) {
         List<Question.Answer> answerList = Main.QUESTION_SERVICE.getAnswerListFromQuestion(question);
 
         System.out.println("------------------------PYTANIE NR. " + counter + "------------------------");
@@ -105,7 +108,7 @@ public class Display {
         System.out.println("-------------------------------------------------------------\n");
     }
 
-    public List<Character> getAnswerFromUser(QuestionType typeOfQuestion, List<Character> allAnswers) {
+    public List<Character> getAnswerFromUser(QuestionType typeOfQuestion, List<Character> allAnswers) throws ReturnToStartException {
         Character smallFirstLetter = allAnswers.get(0).toString().toLowerCase(Locale.ROOT).toLowerCase(Locale.ROOT).charAt(0);
         Character bigFirstLetter = allAnswers.get(0).toString().toUpperCase(Locale.ROOT).charAt(0);
         Character smallLastLetter = allAnswers.get(allAnswers.size() - 1).toString().toLowerCase(Locale.ROOT).charAt(0);
@@ -124,7 +127,7 @@ public class Display {
             }
         }
 
-        String userAnswer = getInputFromUser(message, regex, "Niepoprawny format odpowiedzi. Spróbuj jeszcze raz!");
+        String userAnswer = (String) Util.userInputCheck(getInputFromUser(message, regex, "Niepoprawny format odpowiedzi. Spróbuj jeszcze raz!"));
 
         List<Character> userAnswerList = new ArrayList<>();
         for (String string : userAnswer.split(",")) {

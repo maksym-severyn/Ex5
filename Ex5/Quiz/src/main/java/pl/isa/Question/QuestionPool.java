@@ -1,4 +1,6 @@
-package pl.isa;
+package pl.isa.Question;
+
+import pl.isa.Main;
 
 import java.util.List;
 
@@ -13,6 +15,4 @@ public class QuestionPool {
     public List<Question> getQuestionList() {
         return questionList;
     }
-
-
 }

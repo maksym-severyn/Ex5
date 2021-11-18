@@ -1,72 +1,72 @@
 {
   "id" : 2,
-  "nameAndSurname" : "Ola",
+  "nameAndSurname" : "Max",
   "quiz" : {
-    "dateOfQuiz" : "2021-11-18 14:17:09.261",
+    "dateOfQuiz" : "2021-11-18T15:58:43.076961735",
     "assignedQuestions" : [ {
-      "id" : 13,
+      "id" : 10,
       "questionAndAnswers" : {
-        "Jaka komenda wycofuje próbę merge, jeżeli wystąpił konflikt" : [ {
+        "Wybierz prawidłowe stwierdzenia" : [ {
           "letter" : "a",
-          "answer" : "$ git merge --abort",
-          "correct" : true
-        }, {
-          "letter" : "b",
-          "answer" : "$ git abort",
+          "answer" : "Można utworzyć obiekt z klasy abstrakcyjnej",
           "correct" : false
         }, {
+          "letter" : "b",
+          "answer" : "Nie można utworzyć obiektu z klasy abstrakcyjnej",
+          "correct" : true
+        }, {
           "letter" : "c",
-          "answer" : "$ git restore",
+          "answer" : "Polecenie prettyLooking() z biblioteki Gson pozwala na ładne formatowanie zawartości plików json",
           "correct" : false
         }, {
           "letter" : "d",
-          "answer" : "$ git merge restore",
-          "correct" : false
-        } ]
-      },
-      "questionCategory" : "GIT",
-      "questionType" : "SINGLE_CHOICE"
-    }, {
-      "id" : 15,
-      "questionAndAnswers" : {
-        "Jaka komenda wyświetla istniejące commity" : [ {
-          "letter" : "a",
-          "answer" : "$ git log",
-          "correct" : true
-        }, {
-          "letter" : "b",
-          "answer" : "$ git list",
-          "correct" : false
-        }, {
-          "letter" : "c",
-          "answer" : "$ git ll",
-          "correct" : false
-        } ]
-      },
-      "questionCategory" : "GIT",
-      "questionType" : "SINGLE_CHOICE"
-    }, {
-      "id" : 14,
-      "questionAndAnswers" : {
-        "Jaka komenda skopiuje commit 802f4f0 do branch, na którym jesteś zacheckoutowany" : [ {
-          "letter" : "a",
-          "answer" : "$ git cherry --pick 802f4f0",
-          "correct" : false
-        }, {
-          "letter" : "b",
-          "answer" : "$ git copy 802f4f0",
-          "correct" : false
-        }, {
-          "letter" : "c",
-          "answer" : "$ git cherry-pick 802f4f0",
+          "answer" : "Lambdy są elementami programowania funkcyjnego",
           "correct" : true
         } ]
       },
-      "questionCategory" : "GIT",
-      "questionType" : "SINGLE_CHOICE"
+      "questionCategory" : "JAVA_SE",
+      "questionType" : "MULTIPLE_CHOICE"
+    }, {
+      "id" : 9,
+      "questionAndAnswers" : {
+        "Wybierz prawidłowe stwierdzenia" : [ {
+          "letter" : "a",
+          "answer" : "Mapy implementują interfejs Iterable",
+          "correct" : false
+        }, {
+          "letter" : "b",
+          "answer" : "Gson nie jest biblioteką, stworzoną przez Yahoo",
+          "correct" : true
+        }, {
+          "letter" : "c",
+          "answer" : "Za pomocą biblioteki Jackson można zapisywać dane do plików xml",
+          "correct" : true
+        } ]
+      },
+      "questionCategory" : "JAVA_SE",
+      "questionType" : "MULTIPLE_CHOICE"
+    }, {
+      "id" : 8,
+      "questionAndAnswers" : {
+        "Wybierz prawidłowe stwierdzenia" : [ {
+          "letter" : "a",
+          "answer" : "Przy standardowej serializacji można korzystać z obiektu klasy FileOutputStream",
+          "correct" : true
+        }, {
+          "letter" : "b",
+          "answer" : "Standardowa serializacja nie serializuje ENUMy",
+          "correct" : true
+        }, {
+          "letter" : "c",
+          "answer" : "Przy użyciu słowa transient do konkretnego pola, nie będzie ono serializowane",
+          "correct" : true
+        } ]
+      },
+      "questionCategory" : "JAVA_SE",
+      "questionType" : "MULTIPLE_CHOICE"
     } ],
-    "selectedQuestionType" : "SINGLE_CHOICE",
-    "selectedQuestionCategory" : "GIT",
+    "selectedQuestionType" : "MULTIPLE_CHOICE",
+    "selectedQuestionCategory" : "JAVA_SE",
     "correctAnswers" : 2,
     "incorrectAnswers" : 1
   }
