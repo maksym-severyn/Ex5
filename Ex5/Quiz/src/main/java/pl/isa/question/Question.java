@@ -1,13 +1,15 @@
-package pl.isa.Question;
+package pl.isa.question;
 
 import pl.isa.Main;
 
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import static pl.isa.Main.COUNT_OF_QUESTIONS_IN_BASE;
+
 public class Question implements Comparable<Question> {
 
-    private long id;
+    private Integer id;
     private Map<String, TreeSet<Answer>> questionAndAnswers;
     private QuestionCategory questionCategory;
     private QuestionType questionType;
@@ -21,15 +23,12 @@ public class Question implements Comparable<Question> {
         this.id = generateId();
         this.questionCategory = questionCategory;
 
-        TreeSet<Answer> answersForQuestion = new TreeSet<>();
-        for (Answer answer : answers) {
-            answersForQuestion.add(answer);
-        }
+        TreeSet<Answer> answersForQuestion = new TreeSet<>(Arrays.asList(answers));
         questionAndAnswers = new TreeMap<>();
         questionAndAnswers.put(questionContent,answersForQuestion);
 
         assignQuestionType();
-        Main.QUESTION_SERVICE.writeObjectToBase(this, Main.QUESTIONS_BASE_PATH);
+        Main.QUESTION_SERVICE.writeObjectToBase(this, "Q" + this.getId(), Main.QUESTIONS_BASE_PATH);
     }
 
     private void assignQuestionType(){
@@ -43,24 +42,18 @@ public class Question implements Comparable<Question> {
             }
         });
 
-        if (countOfCorrectAnswers.get() > 1){
-            this.questionType = QuestionType.MULTIPLE_CHOICE;
-        } else {
-            this.questionType = QuestionType.SINGLE_CHOICE;
-        }
+        this.questionType = (countOfCorrectAnswers.get() > 1) ? QuestionType.MULTIPLE_CHOICE : QuestionType.SINGLE_CHOICE;
     }
 
-    private long generateId(){
-        List<Question> questionList = Main.QUESTION_SERVICE.readObjectsFromBase(Question.class, Main.QUESTIONS_BASE_PATH);
-        Collections.sort(questionList, Collections.reverseOrder());
-        if (questionList == null || questionList.size() == 0) {
+    private Integer generateId(){
+        if (COUNT_OF_QUESTIONS_IN_BASE == 0) {
             return 1;
         } else {
-            return questionList.get(0).getId() + 1;
+            return ++COUNT_OF_QUESTIONS_IN_BASE;
         }
     }
 
-    public long getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -79,7 +72,7 @@ public class Question implements Comparable<Question> {
 
     @Override
     public int compareTo(Question o) {
-        return Integer.valueOf(String.valueOf(this.id - o.getId()));
+        return this.id - o.getId();
     }
 
     public static class Answer implements Comparable<Answer>{

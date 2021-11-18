@@ -1,8 +1,8 @@
 package pl.isa;
 
 
-import pl.isa.Question.Question;
-import pl.isa.Question.QuestionCategory;
+import pl.isa.question.Question;
+import pl.isa.question.QuestionCategory;
 
 public class Initialization {
 

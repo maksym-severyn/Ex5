@@ -10,6 +10,13 @@ public class Randomizer {
     }
 
     public Integer randomize(int min, int max) {
-        return random.nextInt((max - min) + 1) + min;
+        Integer result = null;
+        try {
+            result = random.nextInt((max - min) + 1) + min;
+        } catch (IllegalArgumentException e){
+            System.out.println("Min needs to be lower than max!");
+            e.getMessage();
+        }
+        return result;
     }
 }

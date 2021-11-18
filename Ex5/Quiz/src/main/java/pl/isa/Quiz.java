@@ -1,9 +1,10 @@
 package pl.isa;
 
-import pl.isa.Question.Question;
-import pl.isa.Question.QuestionCategory;
-import pl.isa.Question.QuestionPool;
-import pl.isa.Question.QuestionType;
+import pl.isa.question.Question;
+import pl.isa.question.QuestionCategory;
+import pl.isa.question.QuestionPool;
+import pl.isa.question.QuestionType;
+import pl.isa.user.User;
 import pl.isa.util.ReturnToStartException;
 import pl.isa.util.Util;
 
@@ -15,7 +16,6 @@ import static pl.isa.Main.QUESTION_SERVICE;
 import static pl.isa.Main.USER_SERVICE;
 
 public class Quiz {
-    //@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss.SSS")
     private LocalDateTime dateOfQuiz;
     private List<Question> assignedQuestions;
     private QuestionType selectedQuestionType;
@@ -28,6 +28,8 @@ public class Quiz {
         incorrectAnswers = 0;
         this.assignedQuestions = new ArrayList<>();
     }
+
+    //all getters/setters needs for correct working of Jackson
 
     public LocalDateTime getDateOfQuiz() {
         return dateOfQuiz;
@@ -77,21 +79,16 @@ public class Quiz {
         this.incorrectAnswers = incorrectAnswers;
     }
 
-    public void run(int countOfQuestionToBeDisplayed) {
+    public void run(int countOfQuestionToBeDisplayed) throws ReturnToStartException {
         QuestionPool questionPool = new QuestionPool();
         List<Question> wholeQuestionBase = questionPool.getQuestionList();
 
         Display display = new Display();
         User user = null;
 
-        try {
-            user = new User(display.selectAuthorization());
-            this.selectedQuestionCategory = (QuestionCategory) Util.userInputCheck(display.selectQuestionCategory());
-            this.selectedQuestionType = (QuestionType) Util.userInputCheck(display.selectQuestionType());
-        } catch (ReturnToStartException e) {
-            System.exit(0);
-            //run(countOfQuestionToBeDisplayed);
-        }
+        user = new User(display.selectAuthorization());
+        this.selectedQuestionCategory = display.selectQuestionCategory();
+        this.selectedQuestionType = display.selectQuestionType();
 
         List<Question> parameterizedQuestionList = QUESTION_SERVICE.specifyQuestionsAccordingToCategoryAndType(selectedQuestionCategory, selectedQuestionType, wholeQuestionBase);
 
@@ -113,7 +110,6 @@ public class Quiz {
                 isCorrectAnswer = display.checkAnswer(display.getAnswerFromUser(typeOfQuestion, allAnswerLettersList),correctAnswerLettersList);
             } catch (ReturnToStartException e) {
                 System.exit(0);
-                //run(countOfQuestionToBeDisplayed);
             }
             if(isCorrectAnswer){
                 this.correctAnswers++;
@@ -128,9 +124,6 @@ public class Quiz {
 
         user.setQuiz(this);
 
-
-        //tutaj jest problem!!!!!
-        USER_SERVICE.writeObjectToBase(user,Main.USERS_BASE_PATH);
-
+        USER_SERVICE.writeObjectToBase(user, "U" + user.getId(), Main.USERS_BASE_PATH);
     }
 }

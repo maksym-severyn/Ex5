@@ -1,4 +1,4 @@
-package pl.isa.Question;
+package pl.isa.question;
 
 import pl.isa.Main;
 

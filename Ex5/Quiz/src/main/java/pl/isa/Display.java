@@ -1,8 +1,8 @@
 package pl.isa;
 
-import pl.isa.Question.Question;
-import pl.isa.Question.QuestionCategory;
-import pl.isa.Question.QuestionType;
+import pl.isa.question.Question;
+import pl.isa.question.QuestionCategory;
+import pl.isa.question.QuestionType;
 import pl.isa.util.ReturnToStartException;
 import pl.isa.util.Util;
 
@@ -19,10 +19,10 @@ public class Display {
     public String selectAuthorization() throws ReturnToStartException {
         System.out.println("\n--------------------WITAJ W QUIZ !!!--------------------\n");
         makeDelay(1000);
-        return (String) Util.userInputCheck(authorization());
+        return authorization();
     }
 
-    private String authorization() {
+    private String authorization() throws ReturnToStartException {
         return Util.getInputFromUser("Podaj imię i nazwisko lub nickname:", "\\D*",
                 "Źle wprowadzony typ danych. Spróbuj jeszcze raz");
     }
@@ -38,10 +38,8 @@ public class Display {
         System.out.println("______________________________");
 
         String userInput = Util.scanner.nextLine();
-        if (userInput.equals("0")) {
-            System.out.println("Wybrałeś(-aś) zamykanie...");
-            return null;
-        }
+        Util.userInputCheck(userInput);
+
         return validateAndAssignQuestionCategory(userInput);
     }
 
@@ -60,7 +58,7 @@ public class Display {
         return questionCategory;
     }
 
-    public QuestionType selectQuestionType() {
+    public QuestionType selectQuestionType() throws ReturnToStartException {
         System.out.println("Wybierz rodzaj testu, jaki będzie wyświetlony:");
         System.out.println("______________________________");
         for (int i = 0; i < QuestionType.values().length; i++) {
@@ -71,14 +69,11 @@ public class Display {
         System.out.println("______________________________");
 
         String userInput = Util.scanner.nextLine();
-        if (userInput.equals("0")) {
-            System.out.println("Wybrałeś(-aś) zamykanie...");
-            return null;
-        }
+        Util.userInputCheck(userInput);
         return validateAndAssignQuestionType(userInput);
     }
 
-    private QuestionType validateAndAssignQuestionType(String userInput) {
+    private QuestionType validateAndAssignQuestionType(String userInput) throws ReturnToStartException {
         QuestionType questionType = null;
         for (QuestionType i : QuestionType.values()) {
             if (i.getSequentialNumber().equals(userInput)) {
@@ -114,20 +109,20 @@ public class Display {
         Character smallLastLetter = allAnswers.get(allAnswers.size() - 1).toString().toLowerCase(Locale.ROOT).charAt(0);
         Character bigLastLetter = allAnswers.get(allAnswers.size() - 1).toString().toUpperCase(Locale.ROOT).charAt(0);
         String message;
-        String regex;
+        StringBuilder regex = new StringBuilder();
         if (QuestionType.SINGLE_CHOICE.equals(typeOfQuestion)) {
             message = "Wybierz jedną odpowiedź, wpisując literę";
-            regex = "[" + allAnswers.get(0).toString().toLowerCase(Locale.ROOT) + "-" + allAnswers.get(allAnswers.size() - 1).toString().toLowerCase(Locale.ROOT) + allAnswers.get(0).toString().toUpperCase(Locale.ROOT) + "-" + allAnswers.get(allAnswers.size() - 1).toString().toUpperCase(Locale.ROOT) + "]{1}";
+            regex.append("[").append(allAnswers.get(0).toString().toLowerCase(Locale.ROOT)).append("-").append(allAnswers.get(allAnswers.size() - 1).toString().toLowerCase(Locale.ROOT)).append(allAnswers.get(0).toString().toUpperCase(Locale.ROOT)).append("-").append(allAnswers.get(allAnswers.size() - 1).toString().toUpperCase(Locale.ROOT)).append("]{1}");
         } else {
             message = "Wybierz jedną lub kilka odpowiedzi, wpisując literę, lub litery po przecinku, na przykład \"a\" lub \"a,c\"";
 
-            regex = "[" + smallFirstLetter + "-" + smallLastLetter + bigFirstLetter + "-" + bigLastLetter + "]{1}";
+            regex.append("[").append(smallFirstLetter).append("-").append(smallLastLetter).append(bigFirstLetter).append("-").append(bigLastLetter).append("]{1}");
             for (int i = 0; i < allAnswers.size() - 1; i++) {
-                regex = regex + "(,[" + smallFirstLetter + "-" + smallLastLetter + bigFirstLetter + "-" + bigLastLetter + "]{1})?";
+                regex.append("(,[").append(smallFirstLetter).append("-").append(smallLastLetter).append(bigFirstLetter).append("-").append(bigLastLetter).append("]{1})?");
             }
         }
 
-        String userAnswer = (String) Util.userInputCheck(getInputFromUser(message, regex, "Niepoprawny format odpowiedzi. Spróbuj jeszcze raz!"));
+        String userAnswer = getInputFromUser(message, regex.toString(), "Niepoprawny format odpowiedzi. Spróbuj jeszcze raz!");
 
         List<Character> userAnswerList = new ArrayList<>();
         for (String string : userAnswer.split(",")) {
@@ -137,17 +132,17 @@ public class Display {
     }
 
     public boolean checkAnswer(List<Character> userAnswerLetters, List<Character> correctAnswerLettersList) {
-        for (Character letter : correctAnswerLettersList) {
-            if (!userAnswerLetters.contains(letter)) {
-                return false;
-            }
-        }
-        for (Character letter : userAnswerLetters) {
-            if (!correctAnswerLettersList.contains(letter)) {
-                return false;
-            }
-        }
-        return true;
+//        for (Character letter : correctAnswerLettersList) {
+//            if (!userAnswerLetters.contains(letter)) {
+//                return false;
+//            }
+//        }
+//        for (Character letter : userAnswerLetters) {
+//            if (!correctAnswerLettersList.contains(letter)) {
+//                return false;
+//            }
+//        }
+        return userAnswerLetters.containsAll(correctAnswerLettersList) && correctAnswerLettersList.containsAll(userAnswerLetters);
     }
 
     public void displayResults(boolean result, List<Question.Answer> answerList) {

@@ -1,4 +1,4 @@
-package pl.isa.Jackson;
+package pl.isa.jackson;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;

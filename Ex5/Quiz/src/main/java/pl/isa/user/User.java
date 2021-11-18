@@ -1,12 +1,16 @@
-package pl.isa;
+package pl.isa.user;
+
+import pl.isa.Main;
+import pl.isa.Quiz;
 
 import java.util.Collections;
 import java.util.List;
 
+import static pl.isa.Main.COUNT_OF_USERS_IN_BASE;
 import static pl.isa.Main.USER_SERVICE;
 
 public class User implements Comparable<User> {
-    private long id;
+    private Integer id;
     private String nameAndSurname;
     private Quiz quiz;
 
@@ -20,11 +24,11 @@ public class User implements Comparable<User> {
         this.nameAndSurname = nameAndSurname;
     }
 
-    public long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -40,13 +44,11 @@ public class User implements Comparable<User> {
         return quiz;
     }
 
-    private long generateId() {
-        List<User> userList = USER_SERVICE.readObjectsFromBase(User.class, Main.USERS_BASE_PATH);
-        Collections.sort(userList, Collections.reverseOrder());
-        if (userList == null || userList.size() == 0) {
+    private Integer generateId() {
+        if (COUNT_OF_USERS_IN_BASE == 0) {
             return 1;
         } else {
-            return userList.get(0).getId() + 1;
+            return ++COUNT_OF_USERS_IN_BASE;
         }
     }
 
@@ -56,6 +58,6 @@ public class User implements Comparable<User> {
 
     @Override
     public int compareTo(User o) {
-        return Integer.valueOf(String.valueOf(this.id - o.getId()));
+        return this.id - o.getId();
     }
 }
