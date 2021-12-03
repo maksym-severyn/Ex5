@@ -1,32 +1,74 @@
-# Zadania domowe dla kursu JJDZR4
+# Zadanie 5 - Java Przetwarzanie Struktur Danych
+#### Zakres: Struktury danych, OOP
 
-## Zasady
 
-1. Każda praca domowa powinna być wykonana w tym repozytorium.
-1. Należy utworzyć nowy branch w konwencji `nrZadania_ImieNazwisko` (np: `1_MariuszSzymanski`) i na tym branchu przygotować rozwiązanie zadania.
-1. Rozwiązanie każdego z zadań powinno się znaleźć w tym samym folderze, w którym znajduje się plik z treścią zadania (np. rozwiązanie zadania nr 1 powinno znaleźć się w folderze Ex1).
-1. Przed rozpoczęciem pracy nad nowym zadaniem należy zawsze zrobić pull brancha `main`, a następnie utworzyć sobie nowy branch do wykonania zadania, wychodząc zawsze z brancha `main`.
-1. Pushowanie na branch `main` jest zablokowane.
-1. Stosujemy dobre praktyki commitowania kodu (https://www.git-tower.com/learn/git/ebook/en/command-line/appendix/best-practices).
-1. Treść commitów piszemy po angielsku, nie korzystamy z wiadomości typu: "test", "test commit", "rozwiązanie", itp.
-1. Piszemy przejrzysty kod z odpowiednimi zagnieżdżeniami (pamiętaj: możesz korzystać ze skrótu IntelliJ do formatowania kodu).
-1. Jeśli uznasz, że Twoje zadanie jest gotowe do sprawdzenia, to daj mi znać na Slacku (`@Mariusz Szymański`).
-1. Termin oddania podany w każdym zadaniu jest ostateczny.
-1. Jako moment oddania liczy się godzina ostatniego wypushowanego commita (lub utworzenia pull requestu, ale o tym więcej przy kolejnych zadaniach).
-1. Zadania oddane po terminie są oceniane na maksymalnie połowę punktów.
-1. Pamiętaj, że punkty zdobyte za rozwiązanie zadań domowych mają istotny wpływ na wynik zaliczeniowy.
-1. Rozwiązania zadań będą trafiać na dedykowane branche o nazwie typu `1_rozwiazanie`, w ciągu tygodnia po upłynięciu terminu oddania.
+## Zadanie "Quiz" :thought_balloon: 
 
-## Zadania
-Każde zadanie ma treść opisaną w pliku `README.md` w swoim katalogu.
-Klikając poniższe linki, przejdziesz na stronę z podglądem instrukcji.
+**Cel:**  
+Zaprojektuj aplikację typu Quiz (sprawdzanie wiedzy z dowolnego tematu).
 
-### [Zadanie 1 - Podstawy programowania Java SE](./Ex1)
+   
 
-### [Zadanie 2 - Podstawy programowania Java SE](./Ex2)
+**Założenia:**  
 
-### [Zadanie 3 - Podstawy programowania Java SE](./Ex3)
+Quiz składa się z min. 3 pytań, a każde pytanie ma min. 3 odpowiedzi i tylko jedna jest prawidłowa.  
+Pytania do quizu są za każdym razem losowane z większej puli (min. 5 pytań, zakodowane w osobnej klasie, np. QuestionPool).
 
-### [Zadanie 4 - OOP w Java](./Ex4)
+Tematyka pytań dowolna.
 
-### [Zadanie 5 - Struktury danych w Java](./Ex5)
+Po uruchomieniu programu na konsoli wyświetlane jest pierwsze wylosowane pytanie i program czeka na wprowadzenie z konsoli numeru odpowiedzi (a, b lub c).  
+
+<br>_Przykładowe pytanie:_<br/>
+
+Pytanie nr: 1  
+Kategoria: Java SE  
+Treść pytania: Wybierz poprawne stwierdzenie dotyczące Tablic w Javie:  
+Odpowiedzi:  
+a. Posiadają zawsze posortowane elementy.  
+**b. Rozmiar tablicy jest stały.**  
+c. Tablicę można poszerzyć za pomocą metody expand().
+   
+
+Następnie program wyświetla informację, czy udzielono prawidłowej odpowiedzi, a jeśli nie, to jaka jest poprawna odpowiedź.  
+Po wyświetleniu wszystkich pytań otrzymujemy informację z końcowym wynikiem.  
+   
+
+**Wymagania:**
+- aplikacja powinna być napisana obiektowo (klasy np. Quiz, Question, Answer, Category (enum) itd.) - **2 pkt**.
+- program powinien korzystać z min. **dwóch** różnych struktur danych (List, Map, Set, Tablica) - **2 pkt**.
+- pytania do quizu powinny być losowe i nie powinny się powtarzać (w ramach jednego quizu) - **1 pkt**.
+
+Maksymalną liczbę punktów za zadanie można otrzymać tylko wówczas, jeśli wszystkie powyższe polecenia zostały wykonane.
+
+   
+
+**Dla chętnych** (bez wpływu na ocenę za zadanie):  
+- zbiór pytań do quizu jest wczytywany z pliku json.
+- na początku quizu wybieramy kategorię i wylosowane pytania są tylko z tej kategorii.
+- może być więcej niż jedna prawidłowa odpowiedź na każde pytanie, np:
+    - Treść pytania: Wybierz poprawne stwierdzenia dotyczące Tablic w Javie:
+    - Odpowiedzi:  
+      a. Posiadają zawsze posortowane elementy.  
+      **b. Używają indeksów liczbowych do dostępu do poszczególnych elementów.**  
+      **c. Rozmiar tablicy jest stały.**  
+      d. Tablicę można poszerzyć za pomocą metody expand().  
+      **e. W przeciwieństwie do list umożliwiają trzymanie wartości typów prymitywnych.**
+
+
+## Forma oddania zadania
+Utwórz branch o nazwie wg konwencji `5_imieNazwisko`, np. `5_MariuszSzymanski`  
+:exclamation: Pamiętaj, aby nowy branch utworzyć wychodząc z aktualnego brancha `main`.
+Wykonaj zadanie na podanym branchu.  
+Utwórz Pull Request ze swojego brancha na branch main.  
+Dopiero tak zgłoszone zadanie podlega ocenie.
+
+
+## Punktacja
+
+Do zdobycia jest :five: pkt.  
+Zadania oddane po terminie są oceniane na maksymalnie połowę punktów.
+
+#### Powodzenia!
+
+### :clock12: Termin oddania:
+## Piątek, 19.11.2021
